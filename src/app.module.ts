@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RecadosModule } from './recados/recados.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -11,12 +12,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      database: 'postgresql',
+      database: 'postgres',
       password: '123456',
       autoLoadEntities: true,
       synchronize: true,
     }),
     RecadosModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

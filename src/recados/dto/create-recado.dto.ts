@@ -1,4 +1,12 @@
-import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+import {
+  IsDate,
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class CreateRecadoDto {
   @IsString()
@@ -7,15 +15,13 @@ export class CreateRecadoDto {
   @MaxLength(50)
   readonly texto: string;
 
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  @MinLength(3)
-  @MaxLength(50)
-  readonly de: string;
+  @IsPositive()
+  readonly deId: number;
 
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  @MinLength(3)
-  @MaxLength(50)
-  readonly para: string;
+  @IsPositive()
+  readonly paraId: number;
 }
